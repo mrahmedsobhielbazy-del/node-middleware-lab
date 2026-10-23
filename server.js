@@ -1,0 +1,14 @@
+const express = require('express');
+const app = express();
+const loggerMiddleware = require('./loggerMiddleware');
+
+// Use the middleware
+app.use(loggerMiddleware);
+
+app.get('/', (req, res) => {
+    res.send('Hello World with Middleware!');
+});
+
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+});
